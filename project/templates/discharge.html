@@ -1,0 +1,46 @@
+{% extends "navbar.html" %} 
+{% block title %} Discharge Patient {% endblock title %}
+{% block body %}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container mt-4">
+  <div class="display-4 text-center text-info">Discharge Patient</div>
+  <br />
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        {% include "message.html" %}
+        <h4 class="text-center text-success">Covid Care Center</h4>
+        <div class="card-body bg-light">
+          <form action="/discharge" method="post">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="patient_id"
+                placeholder="Enter Patient ID"
+                required
+              />
+            </div>
+
+            <br />
+            <button class="btn btn-danger" type="submit">Discharge Patient</button>
+          </form>
+          <br/>
+          {% if message %}
+          <div class="alert alert-success" role="alert">
+            {{ message }}
+          </div>
+          {% endif %}
+          <a href="/logout" class="btn btn-primary">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
